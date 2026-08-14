@@ -109,6 +109,17 @@ How the repo is organized, the architectural rules, and the code style live in
 [`AGENTS.md`](./AGENTS.md); the writing style for every published word lives in
 [`STYLE.md`](./STYLE.md).
 
+## The repositories
+
+| Repo | What it is |
+| --- | --- |
+| [console](https://github.com/OpenFrayApp/console) | The combat console, a React + Vite app served at `/console` |
+| [site](https://github.com/OpenFrayApp/site) | The website and OpenFray's published libraries |
+| [docs](https://github.com/OpenFrayApp/docs) | The handbook, and the screenshot pipeline behind every capture |
+| [openfray](https://github.com/OpenFrayApp/openfray) | This repo: the deploy that assembles the three, and the working agreements |
+| [compendium](https://github.com/OpenFrayApp/compendium) | The ingest tooling that generates the compendium JSON the console ships |
+| [importer](https://github.com/OpenFrayApp/importer) | A browser extension that turns a D&D Beyond creature page into OpenFray JSON |
+
 ## Content & licensing
 
 - **Code:** [AGPL-3.0](./LICENSE). A hosted/modified version must share its source.
