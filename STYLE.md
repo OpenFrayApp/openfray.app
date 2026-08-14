@@ -46,8 +46,7 @@ Capitalization and naming are part of correctness. Get these right.
 | the compendium                      | the library, the database                                    |
 | the log                             | the roll log, the feed                                       |
 | effect, condition, reminder         | buff, debuff, status                                         |
-| fight                               | combat (in prose; "combat" is fine in **Start combat**)      |
-| encounter                           | — the app's own noun; in prose, say "fight"                  |
+| fight, encounter (interchangeable)  | combat (in prose; "combat" is fine in **Start combat**)      |
 | sign in, signed in, sign out        | log in, login, log out, register                             |
 | DnD 5e (house short form)           | dnd (lowercase), a bare "5E" as a label                      |
 | Dungeons and Dragons, DnD           | D&D, Dungeons & Dragons (only in "D&D Beyond" or legal text) |
