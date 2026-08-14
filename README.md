@@ -101,7 +101,9 @@ npm run build
 ```
 
 `npm run build` builds all three parts and assembles `dist/`; `npm run test` chains
-every suite. Releasing is a submodule pointer-bump commit here.
+every suite. Releasing is `npm run release` (optionally
+`npm run release -- "Build: release 1.1.0"`): it pulls each part's latest `main`,
+syncs the lockfile, rebuilds everything, and commits + pushes the pointer bump.
 
 How the repo is organized, the architectural rules, and the code style live in
 [`AGENTS.md`](./AGENTS.md); the writing style for every published word lives in
