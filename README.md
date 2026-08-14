@@ -94,8 +94,8 @@ it mounts the three as git submodules, and building it assembles the one site th
 ships. You need the Node version in [`.nvmrc`](./.nvmrc) (`nvm use`).
 
 ```bash
-git clone --recurse-submodules https://github.com/OpenFrayApp/openfray.app.git
-cd openfray.app
+git clone --recurse-submodules https://github.com/OpenFrayApp/openfray.app.git openfray-app
+cd openfray-app
 npm install
 npm run build
 ```

@@ -14,8 +14,7 @@ import { globSync, readFileSync } from 'node:fs'
 // The books are game text in an author's voice, and STYLE.md governs them separately.
 const DOCS = [
   '*.md',
-  'docs/src/content/docs/**/*.md*',
-  'site/src/content/news/*.mdx',
+  '*.md',
   '.claude/skills/**/*.md',
 ]
 

@@ -129,7 +129,7 @@ dedup.
 Three parts ship as **one site**. Each is its own repo under
 [OpenFrayApp](https://github.com/OpenFrayApp), mounted here as a git submodule;
 `scripts/assemble-site.mjs` merges their builds into `dist/` for Cloudflare Pages.
-This parent repo owns the deploy, the shared docs, and the screenshot tooling.
+This parent repo owns the deploy and the shared docs.
 
 | Folder (submodule)           | Repo                  | What it is                                          | Served at  |
 | ---------------------------- | --------------------- | --------------------------------------------------- | ---------- |
@@ -241,7 +241,7 @@ utilities, and the two stylesheets hold only what a utility can't reach.
   short of classing every paragraph. The same goes for the rendered markdown inside components,
   element-level rules, and the few things no utility can express (`.lightbox::backdrop`,
   the theme toggle's icon swap, `color-mix()`).
-- `scripts/check-css-specificity.mjs` fails the build on a prose rule written as a plain
+- The site repo's `scripts/check-css-specificity.mjs` fails its build on a prose rule written as a plain
   descendant selector. Wrap prose defaults in `:where()` so a component's own class wins.
 
 Three Tailwind behaviors have each caused a silent bug here. All three are invisible until
@@ -261,7 +261,7 @@ computed style stays identical, so measurement cannot catch it.
 
 Before changing shared CSS or a layout, snapshot computed styles and diff after; every
 regression worth catching in `site/` has been invisible to the eye and obvious in the
-numbers. `scripts/measure-css.mjs snapshot <url> <out.json>` captures a page and
+numbers. The site repo's `scripts/measure-css.mjs snapshot <url> <out.json>` captures a page and
 `… diff <before> <after> --omit-derived` reports what changed, naming the declaration
 behind each change and folding away the nodes that merely moved with it. It wraps
 [qain](https://github.com/Shinyaigeek/qain) — the script's own job is forcing the
@@ -304,9 +304,11 @@ Two more are npm packages, general enough that nothing about them is OpenFray's:
 [opendice](https://github.com/SirDarcanos/opendice) rolls the dice, and
 [shotlist](https://github.com/SirDarcanos/shotlist) takes the screenshots.
 
-**Every capture in the handbook and on the site is a recipe.** They live in
-`screenshots/` — one YAML file per picture, with the shared setup in `macros/` and the
-sample party and foes in `data/`. Run the console (`npm run dev -w console`), then:
+**Every capture in the handbook and on the site is a recipe.** The pipeline lives
+in the docs repo: `screenshots/` there holds one YAML file per picture, with the
+shared setup in `macros/` and the sample party and foes in `data/`, and six recipes
+install the site's hero shots into a `site` clone sitting beside it. Run the
+console, then, from the docs repo:
 
 | Command                         | What it does                                  |
 | ------------------------------- | --------------------------------------------- |
@@ -317,7 +319,7 @@ sample party and foes in `data/`. Run the console (`npm run dev -w console`), th
 
 A capture is data, so re-shooting a stale one is a command rather than an afternoon. If a
 picture needs something the recipe vocabulary cannot say, that is a missing primitive in
-shotlist. Add it there instead of an escape hatch here. Two rules the recipes rely on:
+shotlist. Add it there instead of an escape hatch. Two rules the recipes rely on:
 fill an initiative for **every** combatant, creatures included, or the console rolls
 theirs and the board reorders between runs; and a shot framing live dice or the fight
 clock takes `check: false`, because it can never match itself.
@@ -419,9 +421,10 @@ what a name can't.
 
 Every Markdown file in this repo is technical documentation written for a developer or
 a user who needs to get something done. That includes `AGENTS.md`, `README.md`,
-`CONTRIBUTING.md`, `STYLE.md`, `CHANGELOG.md`, the handbook in `docs/`, the news posts
-in `site/src/content/news/`, and the skill files in `.claude/skills/`. Write all of it
-plain, short, and direct. Nothing in this repo is an essay.
+`CONTRIBUTING.md`, `STYLE.md`, `CHANGELOG.md`, the console repo's `CHANGELOG.md`, the
+handbook in the docs repo, the news posts in the site repo, and the skill files in the
+site repo's `.claude/skills/`. Write all of it plain, short, and direct. Every repo
+carries the same `scripts/check-prose.mjs`, scoped to its own files. Nothing in this repo is an essay.
 
 The books are the only exception. `site/src/content/waking-garden/`,
 `brood-and-bloom/` and `strong-waters/` are game text in an author's voice, and
