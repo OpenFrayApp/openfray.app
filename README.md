@@ -88,20 +88,20 @@ you choose to give away. It runs fully anonymous in the browser, or sign in (fre
 The console, the site, and the handbook each live in their own repo
 ([console](https://github.com/OpenFrayApp/console),
 [site](https://github.com/OpenFrayApp/site), [docs](https://github.com/OpenFrayApp/docs)),
-mounted here as git submodules. You need the Node version in [`.nvmrc`](./.nvmrc)
-(`nvm use`). One clone and one install cover everything:
+and each runs on its own: clone it, `npm install`, `npm run dev` (the site wants a
+`console` clone beside it for the stat blocks it renders). This repo is the deploy:
+it mounts the three as git submodules, and building it assembles the one site that
+ships. You need the Node version in [`.nvmrc`](./.nvmrc) (`nvm use`).
 
 ```bash
 git clone --recurse-submodules https://github.com/OpenFrayApp/openfray.app.git
 cd openfray.app
 npm install
-npm run dev
+npm run build
 ```
 
-That starts the console at `localhost:5199/console/`. The marketing site
-(`npm run dev -w site`) and the handbook (`npm run dev -w docs`) run the same way;
-the three ship together as one site, assembled into `dist/` by `npm run build`.
-`npm run test` runs the test suites.
+`npm run build` builds all three parts and assembles `dist/`; `npm run test` chains
+every suite. Releasing is a submodule pointer-bump commit here.
 
 How the repo is organized, the architectural rules, and the code style live in
 [`AGENTS.md`](./AGENTS.md); the writing style for every published word lives in

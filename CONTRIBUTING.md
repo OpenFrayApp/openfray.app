@@ -49,9 +49,10 @@ These come from the same spirit; please keep them intact:
 
 ## Getting the project running
 
-You need the Node version in [`.nvmrc`](./.nvmrc) (`nvm use`) and npm. The console,
-the site, and the handbook are separate repos mounted here as git submodules, so
-clone with submodules; one install at this root then covers all three workspaces:
+You need the Node version in [`.nvmrc`](./.nvmrc) (`nvm use`) and npm. Each part is
+its own repo and runs on its own: clone it, `npm install`, `npm run dev` (the site
+wants a `console` clone beside it; see each README). To build the assembled site,
+clone this repo with submodules; one install here covers all three workspaces:
 
 ```bash
 git clone --recurse-submodules https://github.com/OpenFrayApp/openfray.app.git

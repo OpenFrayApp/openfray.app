@@ -22,7 +22,6 @@
     "@qain/core": "^0.0.5",
     "@types/node": "^22.20.1",
     "prettier": "^3.9.5",
-    "prettier-plugin-astro": "^0.14.1",
     "shotlist": "^0.2.3",
     "vitest": "^3.0.0"
   },

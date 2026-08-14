@@ -139,9 +139,11 @@ This parent repo owns the deploy, the shared docs, and the screenshot tooling.
 | `console/public/compendium/` | —                     | generated SRD / Tome of Beasts JSON the app fetches | —          |
 | `local/`                     | —                     | maintainer working notes, **not committed**         | —          |
 
-Clone with `git clone --recurse-submodules`. A change to a part is committed in that
-part's repo; this repo then records the new submodule pointer, and that pointer-bump
-commit is what deploys.
+Day to day, each part is worked on as its own standalone clone (the site needs a
+`console` clone beside it). Clone this repo with `git clone --recurse-submodules` to
+build or release the whole. A change to a part is committed in that part's repo;
+this repo then records the new submodule pointer, and that pointer-bump commit is
+what deploys.
 
 `STYLE.md` at the root governs the copy in all three of them.
 
@@ -157,8 +159,8 @@ has exactly two sources. Edit them; don't generate them.
   undo those edits. There is no generator to re-run, and adding one back would only turn
   every copy edit into a string substitution keyed to a sentence that might change.
 - **Stat blocks** — `console/public/compendium/<library>-creatures.json`, rendered at
-  build time by `site/src/components/Creature.astro` (the site imports it from the
-  `console` sibling, which is why the site builds from this parent checkout). Never
+  build time by `site/src/components/Creature.astro` (the site imports it from a
+  `console` checkout beside it: a sibling clone, or this parent's submodules). Never
   transcribe a stat block into the prose: the page and the console read the same file,
   which is what stops them disagreeing. That JSON is generated from the
   [compendium](https://github.com/OpenFrayApp/compendium) repo; edit it there.
