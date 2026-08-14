@@ -56,13 +56,6 @@ Thumbs.db
 *.swp
 
 # ───────────────────────────────────────────────────────────────
-# Supabase local dev (if you use the Supabase CLI later)
-# ───────────────────────────────────────────────────────────────
-supabase/.branches
-supabase/.temp
-supabase/.env
-
-# ───────────────────────────────────────────────────────────────
 # Local-only scratch (session notes, handoff docs) — never committed.
 # ───────────────────────────────────────────────────────────────
 local/
