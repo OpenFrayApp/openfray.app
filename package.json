@@ -1,0 +1,34 @@
+{
+  "name": "openfray.app",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "The deploy that ties the OpenFray console, website, and handbook into one site.",
+  "license": "AGPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenFrayApp/openfray.app.git"
+  },
+  "scripts": {
+    "dev": "npm run dev -w console",
+    "dev:all": "npm run dev -w console & npm run dev -w site & npm run dev -w docs & wait",
+    "build": "node scripts/clean-dist.mjs && node scripts/check-news-slugs.mjs && node scripts/check-prose.mjs && npm run build -w console && npm run build -w site && npm run build -w docs && node scripts/assemble-site.mjs && node scripts/check-spacing.mjs && node scripts/check-css-specificity.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run && npm run test -w console && npm run test -w site",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@qain/core": "^0.0.5",
+    "@types/node": "^22.20.1",
+    "prettier": "^3.9.5",
+    "prettier-plugin-astro": "^0.14.1",
+    "shotlist": "^0.2.3",
+    "vitest": "^3.0.0"
+  },
+  "workspaces": [
+    "console",
+    "site",
+    "docs"
+  ]
+}
