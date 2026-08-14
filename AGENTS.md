@@ -5,9 +5,10 @@ committing, and content licensing. Each part's own AGENTS.md carries its domain
 docs repo's screenshot pipeline). The full reasoning lives in the maintainer's
 working notes (`local/docs/`), which are **not committed**.
 
-Its counterpart for words is [`STYLE.md`](./STYLE.md), the writing style guide for
-every word we publish: the handbook, the marketing site, and the app's own labels
-and messages. **Read it before writing or changing any user-facing copy.**
+Its counterpart for words is [`STYLE.md`](./STYLE.md), the shared core of the
+writing style: the words table, the grammar, and the game-text mechanics. Each
+part's repo carries its own voice guide beside its code. **Read the core plus the
+local guide before writing or changing any user-facing copy.**
 
 In here:
 
@@ -131,8 +132,8 @@ what a name can't.
 - **Prettier and ESLint decide formatting** — run `npm run format` before
   committing; never hand-align or fight the formatter. Each repo formats itself;
   this repo's formatter covers only its own files.
-- **All user-facing copy follows [`STYLE.md`](./STYLE.md)**: UI labels, buttons,
-  errors and empty states as much as the handbook and the marketing site.
+- **All user-facing copy follows the style guides**: the shared core in
+  [`STYLE.md`](./STYLE.md) here, and the voice guide in the surface's own repo.
 
 ## Writing style (documentation)
 
@@ -144,12 +145,13 @@ repo, and the skill files in the site repo's `.claude/skills/`. Write all of it
 plain, short, and direct. Every repo carries the same `scripts/check-prose.mjs`,
 scoped to its own files. Nothing in these repos is an essay.
 
-The books are the only exception. `site/src/content/waking-garden/`,
-`brood-and-bloom/` and `strong-waters/` are game text in an author's voice, and
-[`STYLE.md`](./STYLE.md) governs them under "Game content". Do not borrow that voice
-anywhere else, including commit messages and code comments.
+The books and the site's marketing pages are the exceptions: both registers are
+governed by the site repo's STYLE.md. Do not borrow either voice anywhere else,
+including commit messages and code comments.
 
-Five rules. `node scripts/check-prose.mjs` runs on every build and fails on the first.
+Five rules for the documentation registers (the site's marketing copy and the
+books follow the site repo's STYLE.md instead). `node scripts/check-prose.mjs` runs
+on every build and fails on the first.
 
 - **No em-dash aside.** A spaced em dash in the middle of a sentence is this repo's
   worst habit and it is banned outright. Use a period, a colon, or parentheses. One
