@@ -1,5 +1,5 @@
 {
-  "name": "openfray.app",
+  "name": "openfray",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -7,7 +7,7 @@
   "license": "AGPL-3.0-or-later",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OpenFrayApp/openfray.app.git"
+    "url": "git+https://github.com/OpenFrayApp/openfray.git"
   },
   "scripts": {
     "dev": "npm run dev -w console",
