@@ -29,6 +29,8 @@ beforeEach(() => {
   file('site/dist/brood-and-bloom/print/index.html', '<html>print</html>')
   file('site/dist/strong-waters/index.html')
   file('site/dist/strong-waters/print/index.html', '<html>print</html>')
+  file('site/dist/lab/index.html', '<html>lab</html>')
+  file('site/dist/lab/loop.mp4', 'mp4')
   file('site/dist/sitemap-index.xml', '<sitemapindex>site-only</sitemapindex>')
   file('docs/dist/index.html', '<html>docs</html>')
   file('console/dist/console/index.html', '<html>app</html>')
@@ -55,6 +57,10 @@ describe('assemble-site', () => {
       expect(existsSync(join(dir, `dist/${book}/print`))).toBe(false)
       expect(existsSync(join(dir, `dist/${book}/index.html`))).toBe(true)
     }
+  })
+
+  it('removes /lab, the section-component demo, assets included', () => {
+    expect(existsSync(join(dir, 'dist/lab'))).toBe(false)
   })
 
   it('writes the Pages redirects: slash normalisation, SPA fallback, moved docs URLs', () => {

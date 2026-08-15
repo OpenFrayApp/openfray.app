@@ -21,6 +21,10 @@ rmSync('dist/the-waking-garden/print', { recursive: true, force: true })
 rmSync('dist/brood-and-bloom/print', { recursive: true, force: true })
 rmSync('dist/strong-waters/print', { recursive: true, force: true })
 
+// /lab is the same kind of local tool: the site's section components demoed on one
+// page, for review before a real page composes them.
+rmSync('dist/lab', { recursive: true, force: true })
+
 // /docs → the Starlight handbook, built with base = /docs/ so its links and assets
 // already point under /docs. Copy it in wholesale.
 cpSync('docs/dist', 'dist/docs', { recursive: true })
