@@ -29,19 +29,41 @@ rmSync('dist/lab', { recursive: true, force: true })
 // already point under /docs. Copy it in wholesale.
 cpSync('docs/dist', 'dist/docs', { recursive: true })
 
-// The handbook was reorganised into fight/, library/, and reference/ folders; keep the
-// old /docs/concepts/* (and the old top-level /docs/importer/) URLs working.
+// The handbook is organised by Diátaxis quadrant: concepts/, guides/, and reference/,
+// with the tutorial at /docs/getting-started/. Every URL an earlier layout used 301s
+// to its final home here — the flat original, the fight/-library/ layout, and the
+// first concepts/ layout whose slugs now host different pages. One hop only: each
+// entry points at a live page, never at another entry's key.
 const docsMoves = {
-  '/docs/concepts/encounters/': '/docs/fight/encounters/',
-  '/docs/concepts/combatants/': '/docs/fight/combatants/',
-  '/docs/concepts/effects/': '/docs/fight/effects/',
-  '/docs/concepts/spells/': '/docs/fight/spells/',
-  '/docs/concepts/rests/': '/docs/fight/rests/',
-  '/docs/concepts/compendium/': '/docs/library/compendium/',
-  '/docs/concepts/making-your-own/': '/docs/library/making-your-own/',
-  '/docs/concepts/campaigns/': '/docs/library/campaigns/',
-  '/docs/concepts/dice/': '/docs/reference/dice/',
-  '/docs/importer/': '/docs/library/importer/',
+  // the fight/ and library/ layout (2026), now split across the quadrants
+  '/docs/fight/combatants/': '/docs/concepts/combatants/',
+  '/docs/fight/effects/': '/docs/guides/effects/',
+  '/docs/fight/encounters/': '/docs/guides/encounters/',
+  '/docs/fight/attacks/': '/docs/guides/attacks/',
+  '/docs/fight/saves/': '/docs/guides/saves/',
+  '/docs/fight/concentration/': '/docs/guides/concentration/',
+  '/docs/fight/resources/': '/docs/guides/resources/',
+  '/docs/fight/spells/': '/docs/guides/spells/',
+  '/docs/fight/death/': '/docs/guides/death/',
+  '/docs/fight/rests/': '/docs/guides/rests/',
+  '/docs/fight/player-view/': '/docs/guides/player-view/',
+  '/docs/fight/recap/': '/docs/guides/recap/',
+  '/docs/fight/tracker/': '/docs/reference/tracker/',
+  '/docs/library/compendium/': '/docs/reference/compendium/',
+  '/docs/library/making-your-own/': '/docs/guides/making-your-own/',
+  '/docs/library/campaigns/': '/docs/guides/campaigns/',
+  '/docs/library/importer/': '/docs/guides/importer/',
+  '/docs/account/': '/docs/concepts/account/',
+  // the first concepts/ layout; combatants/ and effects/ are real pages again, so
+  // only the slugs that moved elsewhere still redirect
+  '/docs/concepts/encounters/': '/docs/guides/encounters/',
+  '/docs/concepts/spells/': '/docs/guides/spells/',
+  '/docs/concepts/rests/': '/docs/guides/rests/',
+  '/docs/concepts/compendium/': '/docs/reference/compendium/',
+  '/docs/concepts/making-your-own/': '/docs/guides/making-your-own/',
+  '/docs/concepts/campaigns/': '/docs/guides/campaigns/',
+  // the flat original
+  '/docs/importer/': '/docs/guides/importer/',
 }
 
 // Pages routing: normalise the bare /console and /docs to their trailing-slash index,

@@ -68,7 +68,9 @@ describe('assemble-site', () => {
     expect(redirects).toContain('/console            /console/             301')
     expect(redirects).toContain('/console/*          /console/index.html   200')
     expect(redirects).toContain('/docs               /docs/                301')
-    expect(redirects).toMatch(/\/docs\/concepts\/effects\/\s+\/docs\/fight\/effects\/\s+301/)
+    expect(redirects).toMatch(/\/docs\/fight\/effects\/\s+\/docs\/guides\/effects\/\s+301/)
+    // A first-layout URL whose slug moved across two reorganisations still lands in one hop.
+    expect(redirects).toMatch(/\/docs\/concepts\/encounters\/\s+\/docs\/guides\/encounters\/\s+301/)
     expect(redirects.endsWith('\n')).toBe(true)
   })
 
