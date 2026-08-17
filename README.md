@@ -69,20 +69,6 @@ run_ a character's build (class features, spell mechanics, leveling), that's the
 signal to stop and rethink, not to add the field. Storing a fact the GM types is
 fine; computing what a character can do is not.
 
-## Status
-
-🎲 **1.0, running tables at [openfray.app/console](https://openfray.app/console).**
-
-The single-GM combat console is up and running: initiative, monster resources,
-conditions/effects, concentration, group saves, and honest dice with a clear roll log,
-plus an **encounter difficulty estimate** before you begin and an **end-of-combat recap**
-(XP, timing, and standout hits), the built-in SRD compendium (**Basic Rules 2024 and opt-in 2014 + Tome of Beasts libraries**), custom
-creatures and spells, JSON creature import, a durable **Characters** roster, and
-**campaigns** with house rules, plus a **shared read-only player view** your table follows
-on their own phones, showing the turn order and the game log with as much of a creature as
-you choose to give away. It runs fully anonymous in the browser, or sign in (free, with
-**Discord or Google**) to save your fights and custom content to the cloud across devices.
-
 ## Running it locally
 
 The console, the site, and the handbook each live in their own repo
