@@ -197,9 +197,6 @@ the same commit.
   `Copy`, `Tests`. The body explains _why_, in prose.
 - **Sign-off (DCO):** every commit carries `Signed-off-by` — use `git commit -s`.
   There is no CLA.
-- **Authorship is human.** Commits are authored and signed by the person making
-  them. Never add AI co-author trailers (`Co-Authored-By: Claude …`) or
-  "Generated with …" lines to a commit message, PR, or changelog.
 - **Don't push without the maintainer's go-ahead.** Pushing this repo's `main` is
   what triggers the production build on Cloudflare Pages; a part repo's push changes
   nothing in production until the submodule pointer moves here. Work is committed
